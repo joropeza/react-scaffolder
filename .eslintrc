@@ -1,0 +1,25 @@
+{
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "globals": {
+        "$": false
+    },
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "rules": {
+        "func-names": 0,
+        "indent": [2, 4],
+        "react/jsx-filename-extension": 0,
+        "react/jsx-indent": [2, 4]
+    },
+    "plugins": [
+        "react"
+    ]
+}
