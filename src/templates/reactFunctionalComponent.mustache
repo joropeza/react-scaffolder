@@ -1,0 +1,17 @@
+import React, { PropTypes } from 'react';
+
+const {{ componentName }} = props => (
+    <div>
+        props.label
+    </div>
+);
+
+{{ componentName }}.propTypes = {
+    label: PropTypes.string,
+};
+
+{{ componentName }}.defaultProps = {
+    label: 'Hello World',
+};
+
+export default {{ componentName }};
