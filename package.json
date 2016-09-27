@@ -24,10 +24,11 @@
     "mocha": "^3.0.2",
     "webpack": "^1.13.2"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jon Oropeza <joropeza@gmail.com> (http://jonoropeza.com)",
+  "license": "MIT",
   "dependencies": {
     "commander": "^2.9.0",
-    "mustache": "^2.2.1"
+    "mustache": "^2.2.1",
+    "parenthesis": "^3.1.3"
   }
 }
