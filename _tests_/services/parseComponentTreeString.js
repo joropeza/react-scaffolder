@@ -2,11 +2,7 @@ import { expect } from 'chai';
 import _ from 'lodash';
 
 import functionToTest from '../../src/services/parseComponentTreeString';
-
-const componentUsages = {
-    SINGLE_COMPONENT: 'SINGLE_COMPONENT',
-    ARRAYED_COMPONENT: 'ARRAYED_COMPONENT',
-};
+import componentUsages from '../../src/consts/componentUsages';
 
 describe('(parse component string)', function() {
     it('should find a single component', function() {
