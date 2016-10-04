@@ -10,8 +10,8 @@
     },
     "globals": {
         "$": false,
-        "describe:": false,
-        "it": false
+        "describe:": true,
+        "it": true
     },
     "parser": "babel-eslint",
     "extends": "airbnb",
