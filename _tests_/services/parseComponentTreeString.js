@@ -16,5 +16,4 @@ describe('(parse component string)', () => {
             expect(results).to.deep.equal(expectedResults);
         });
     });
-
 });
