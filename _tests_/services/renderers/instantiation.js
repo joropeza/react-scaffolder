@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import functionToTest from '../../../src/services/renderers/instantiation';
 
-describe('(additional imports)', () => {
+describe('(instantiation)', () => {
     it('should return nothing for no children', () => {
         const data = {};
         const results = functionToTest(data);
@@ -13,10 +13,10 @@ describe('(additional imports)', () => {
         expect(results).to.deep.equal(expectedResults);
     });
     it('should return nothing for a single usage', () => {
-        const data = { content: { usage: 'SINGLE_COMPONENT' } };
+        const data = { children: { content: { usage: 'SINGLE_COMPONENT' } } };
         const results = functionToTest(data);
 
-        const expectedResults = 'const content = renderContent();';
+        const expectedResults = ['const content = renContent(); \n'];
 
         expect(results).to.deep.equal(expectedResults);
     });
