@@ -16,10 +16,19 @@ const instantiation = (children) => {
 
         switch (usage) {
         case componentUsages.SINGLE_COMPONENT:
+            const singleData = {
+                componentName: name,
+                capitalizedComponentName: _.capitalize(name),
+            };
             const singleTemplate = loadTemplate('instantiation/SINGLE_COMPONENT');
-            return Mustache.render(singleTemplate, { componentName: name, capitalizedComponentName: _.capitalize(name) });
+            return Mustache.render(singleTemplate, singleData);
         case componentUsages.ARRAYED_COMPONENT:
-            return 'arrayed';
+            const arrayedData = {
+                componentName: name,
+                capitalizedComponentName: _.capitalize(name),
+            };
+            const arrayedTemplate = loadTemplate('instantiation/ARRAYED_COMPONENT');
+            return Mustache.render(arrayedTemplate, arrayedData);
         default:
             return 'default';
         }

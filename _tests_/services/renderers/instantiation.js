@@ -12,19 +12,19 @@ describe('(instantiation)', () => {
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return nothing for a single usage', () => {
+    it('should return a single instantiation for a single usage', () => {
         const data = { children: { content: { usage: 'SINGLE_COMPONENT' } } };
         const results = functionToTest(data);
 
-        const expectedResults = ['const content = renContent(); \n'];
+        const expectedResults = ['const content = renderContent(); \n'];
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return an import of lodash for an arrayed usage', () => {
-        const data = { listItem: { usage: 'ARRAYED_COMPONENT' } };
+    it('should return a single instantiation for an arrayed usage', () => {
+        const data = { children: { listItem: { usage: 'ARRAYED_COMPONENT' } } };
         const results = functionToTest(data);
 
-        const expectedResults = 'import _ from \'lodash\'';
+        const expectedResults = ['const content = renderContent(); \n'];
 
         expect(results).to.deep.equal(expectedResults);
     });
