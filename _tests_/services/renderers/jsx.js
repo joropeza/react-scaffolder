@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 import _ from 'lodash';
 
-import functionToTest from '../../../src/services/renderers/instantiation';
+import functionToTest from '../../../src/services/renderers/jsx';
 
-const singleResult = 'const content = renderContent(); \n';
-const arrayedResult = 'const listItemArray = props.items.map(item => {\n    return renderListitem();\n});\n';
+const singleResult = '<div>\n    {content}\n</div>\n';
+const arrayedResult = '<div>\n    {listItemArray}\n</div>\n';
 
-describe('(instantiation)', () => {
+describe('(jsx)', () => {
     it('should return nothing for no children', () => {
         const data = {};
         const results = functionToTest(data);
@@ -15,7 +15,7 @@ describe('(instantiation)', () => {
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return a single instantiation for a single usage', () => {
+    it('should return a single jsx instance for a single usage', () => {
         const data = { children: { content: { usage: 'SINGLE_COMPONENT' } } };
         const results = functionToTest(data);
 
@@ -23,7 +23,7 @@ describe('(instantiation)', () => {
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return a single instantiation for an arrayed usage', () => {
+    it('should return a single jsx instance for an arrayed usage', () => {
         const data = { children: { listItem: { usage: 'ARRAYED_COMPONENT' } } };
         const results = functionToTest(data);
 
@@ -31,7 +31,7 @@ describe('(instantiation)', () => {
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return multiple instantiations', () => {
+    it('should return multiple jsx instances', () => {
         const data = { children: {
             content: { usage: 'SINGLE_COMPONENT' },
             listItem: { usage: 'ARRAYED_COMPONENT' },

@@ -4,7 +4,7 @@ import Mustache from 'mustache';
 import loadTemplate from '../loaders/loadTemplate';
 import componentUsages from '../../consts/componentUsages';
 
-const instantiation = (children) => {
+const jsx = (children) => {
     const childs = _.values(children);
     if (childs.length === 0) {
         return null;
@@ -19,17 +19,17 @@ const instantiation = (children) => {
         switch (usage) {
         case componentUsages.SINGLE_COMPONENT:
             const singleData = {
-                componentName: name,
+                componentName: '{' + name + '}',
                 capitalizedComponentName: _.capitalize(name),
             };
-            const singleTemplate = loadTemplate('instantiation/SINGLE_COMPONENT');
+            const singleTemplate = loadTemplate('jsx/SINGLE_COMPONENT');
             return Mustache.render(singleTemplate, singleData);
         case componentUsages.ARRAYED_COMPONENT:
             const arrayedData = {
-                componentName: name,
+                componentName: '{' + name + 'Array}',
                 capitalizedComponentName: _.capitalize(name),
             };
-            const arrayedTemplate = loadTemplate('instantiation/ARRAYED_COMPONENT');
+            const arrayedTemplate = loadTemplate('jsx/ARRAYED_COMPONENT');
             return Mustache.render(arrayedTemplate, arrayedData);
         default:
             return 'default';
@@ -39,4 +39,4 @@ const instantiation = (children) => {
     return getters;
 };
 
-export default instantiation;
+export default jsx;
