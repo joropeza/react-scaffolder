@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 import _ from 'lodash';
 
-import functionToTest from '../../../src/services/renderers/instantiation';
+import functionToTest from '../../../src/services/renderers/imports';
 
-const singleResult = 'const content = renderContent(); \n';
-const arrayedResult = 'const listItemArray = props.items.map(item => {\n    return renderListItem();\n});\n';
+const singleResult = 'import renderContent from \'./content\'; \n';
+const arrayedResult = 'import renderListItem from \'./listItem\';\n';
 
-describe('(instantiation)', () => {
+describe('(imports)', () => {
     it('should return nothing for no children', () => {
         const data = {};
         const results = functionToTest(data);
@@ -15,7 +15,7 @@ describe('(instantiation)', () => {
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return a single instantiation for a single usage', () => {
+    it('should return a single import for a single usage', () => {
         const data = { children: { content: { usage: 'SINGLE_COMPONENT' } } };
         const results = functionToTest(data);
 
@@ -23,7 +23,7 @@ describe('(instantiation)', () => {
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return a single instantiation for an arrayed usage', () => {
+    it('should return a single import for an arrayed usage', () => {
         const data = { children: { listItem: { usage: 'ARRAYED_COMPONENT' } } };
         const results = functionToTest(data);
 
@@ -31,7 +31,7 @@ describe('(instantiation)', () => {
 
         expect(results).to.deep.equal(expectedResults);
     });
-    it('should return multiple instantiations', () => {
+    it('should return multiple imports', () => {
         const data = { children: {
             content: { usage: 'SINGLE_COMPONENT' },
             listItem: { usage: 'ARRAYED_COMPONENT' },

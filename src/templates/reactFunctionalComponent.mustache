@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react';
 
-const {{ componentName }} = props => (
-    <div>
-        {props.label}
-    </div>
-);
+const {{ componentName }} = props => {
+    {{ instantiations }}
+    return (
+        <div>
+            {{ childJsx }}
+        </div>
+    )
+};
 
 {{ componentName }}.propTypes = {
     label: PropTypes.string,

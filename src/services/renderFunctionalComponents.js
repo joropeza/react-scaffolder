@@ -1,22 +1,17 @@
 import Mustache from 'mustache';
 import _ from 'lodash';
 
-import additionalImports from './renderers/additionalImports';
+// import additionalImports from './renderers/additionalImports';
+import instantiation from './renderers/instantiation';
+import jsx from './renderers/jsx';
 import loadTemplate from './loaders/loadTemplate';
-
-const createComponentChildren = (children) => {
-        console.log(children);
-        // iterate the children
-        // for each, switch/case off of the usage
-        // tricky thing will be if we need to split the js from the jsx
-        // other tricky thing will be if there are multiple children (header, body, footer model)
-};
 
 const renderFunctionalComponent = (name, componentAst) => {
     const data = _.cloneDeep(componentAst);
     data.componentName = name;
 
-    data.childJsx = createComponentChildren(data.children);
+    data.instantiations = instantiation(componentAst);
+    data.childJsx = jsx(componentAst);
 
     const template = loadTemplate('reactFunctionalComponent');
     return Mustache.render(template, data);

@@ -16,7 +16,7 @@ describe('(render functional component)', () => {
             expect(results.length).to.equal(expectedResultsLength);
 
             _.forEach(results, result => {
-
+                console.log(result);
             });
 
             // const expectedResults = '';
