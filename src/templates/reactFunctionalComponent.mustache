@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
+{{#imports }}{{{.}}}{{/imports}}
 
 const {{ componentName }} = props => {
-    {{ instantiations }}
+{{#instantiations }}{{{.}}}{{/instantiations}}
     return (
         <div>
-            {{ childJsx }}
+{{#childJsx}}{{{.}}}{{/childJsx}}
         </div>
     )
 };

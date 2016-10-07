@@ -1,33 +1,31 @@
-var _ = require('lodash');
+import React, { PropTypes } from 'react';
+import renderCopyright from './copyright';
+import renderWatermark from './watermark';
 
-var data = {
-    body: {
-        children: {
-            header: {
-                usage: 'SINGLE_COMPONENT',
-            },
-            listItem: {
-                usage: 'ARRAYED_COMPONENT',
-            },
-            footer: {
-                usage: 'SINGLE_COMPONENT',
-            },
-        },
-    }
+
+const footer = props => {
+    const copyright = renderCopyright();
+const watermark = renderWatermark();
+
+    return (
+        <div>
+            <div>
+    {copyright}
+</div>
+<div>
+    {watermark}
+</div>
+
+        </div>
+    )
 };
 
-console.log(data);
+footer.propTypes = {
+    label: PropTypes.string,
+};
 
-// 1. map all the children into an array
+footer.defaultProps = {
+    label: 'Hello World',
+};
 
-var map = _.map(data.body.children, function(child) {
-    return child;
-});
-
-console.log('map', map);
-
-var mapValues = _.mapValues(data.body.children, function(child) {
-    return child;
-});
-
-console.log('mapValues', mapValues);
+export default footer;
