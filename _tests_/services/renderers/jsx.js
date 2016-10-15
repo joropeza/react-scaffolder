@@ -3,8 +3,8 @@ import _ from 'lodash';
 
 import functionToTest from '../../../src/services/renderers/jsx';
 
-const singleResult = '<div>\n    {content}\n</div>\n';
-const arrayedResult = '<div>\n    {listItemArray}\n</div>\n';
+const singleResult = '            <div>\n                {content}\n            </div>\n';
+const arrayedResult = '            <div>\n                {listItemArray}\n            </div>\n';
 
 describe('(jsx)', () => {
     it('should return nothing for no children', () => {

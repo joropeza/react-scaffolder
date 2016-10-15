@@ -3,8 +3,8 @@ import _ from 'lodash';
 
 import functionToTest from '../../../src/services/renderers/instantiation';
 
-const singleResult = 'const content = renderContent(); \n';
-const arrayedResult = 'const listItemArray = props.items.map(item => {\n    return renderListItem();\n});\n';
+const singleResult = '    const content = renderContent();\n';
+const arrayedResult = '    const listItemArray = props.items.map(item => {\n        return renderListItem();\n    });\n';
 
 describe('(instantiation)', () => {
     it('should return nothing for no children', () => {
