@@ -11,11 +11,7 @@ const {{ componentName }} = props => {
 };
 
 {{ componentName }}.propTypes = {
-    label: PropTypes.string,
-};
-
-{{ componentName }}.defaultProps = {
-    label: 'Hello World',
+{{#propTypes}}{{{.}}}{{/propTypes}}
 };
 
 export default {{ componentName }};
