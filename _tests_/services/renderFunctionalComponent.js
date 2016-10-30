@@ -13,7 +13,7 @@ describe('(render functional component)', () => {
             const expectedResultsLength = _.values(data).length;
 
             expect(results).to.be.ok;
-            expect(results.length).to.equal(expectedResultsLength);
+            expect(_.size(results)).to.equal(expectedResultsLength);
 
             _.forEach(results, result => {
                 console.log(result);

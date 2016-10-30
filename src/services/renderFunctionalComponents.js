@@ -19,10 +19,10 @@ const renderFunctionalComponent = (name, componentAst) => {
 };
 
 const renderFunctionalComponents = (ast) => {
-    const componentCollection = [];
+    const componentCollection = {};
 
     _.forOwn(ast, (componentAst, key) => {
-        componentCollection.push(renderFunctionalComponent(key, componentAst));
+        componentCollection[key] = renderFunctionalComponent(key, componentAst);
     });
 
     return componentCollection;
