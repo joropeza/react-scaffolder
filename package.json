@@ -6,7 +6,8 @@
   "scripts": {
     "start": "babel-node ./src/index.js -c list+[listItem]",
     "test": "mocha --recursive ./_tests_/ --require babel-core/register",
-    "test-watch": "mocha --recursive ./_tests_/ --require babel-core/register --watch --bail"
+    "test-watch": "mocha --recursive ./_tests_/ --require babel-core/register --watch --bail",
+    "lint": "eslint ./src/**/*.js"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -18,7 +19,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "eslint": "^3.6.0",
-    "eslint-config-airbnb": "^11.2.0",
+    "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
