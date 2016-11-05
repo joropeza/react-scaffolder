@@ -60,7 +60,8 @@ const createBaseComponentTree = (parendString) => {
                     }
                 });
             }
-            // console.log(`i am ${component} and my ${componentChildren.length} children are ${componentChildren}`);
+            // console.log(`i am ${component}
+            // and my ${componentChildren.length} children are ${componentChildren}`);
             _.forEach(componentChildren, (child) => {
                 if (componentTree[component]) {
                     componentTree[component].children[removeBrackets(child)] = {

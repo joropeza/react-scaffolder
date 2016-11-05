@@ -34,5 +34,5 @@ export default renderFunctionalComponents;
 // 2. import the components themselves
 // 3. instantiation for each child
 // 4. jsx to render each child (order is important, must be maintained)
-// 5. prop validation... how do we know what gets passed? do we pass some subset of props automatically?
+// 5. prop validation... how do we know what gets passed?
 // 6. default values
