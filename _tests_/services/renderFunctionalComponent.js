@@ -1,5 +1,7 @@
 import { expect } from 'chai';
 import _ from 'lodash';
+import { linter } from 'eslint';
+import eslint from 'eslint';
 
 import componentAsts from '../io/componentAsts';
 import functionToTest from '../../src/services/renderFunctionalComponents';
@@ -15,9 +17,12 @@ describe('(render functional component)', () => {
             expect(results).to.be.ok;
             expect(_.size(results)).to.equal(expectedResultsLength);
 
-            _.forEach(results, result => {
-                console.log(result);
-            });
+            console.log(_.size(results));
+
+            // const messages = _.map(results, result =>
+            //    eslint.CLIEngine.getErrorResults(result));
+
+            // console.log(messages);
 
             // const expectedResults = '';
 

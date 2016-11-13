@@ -4,6 +4,8 @@ import _ from 'lodash';
 import imports from './renderers/imports';
 import instantiation from './renderers/instantiation';
 import jsx from './renderers/jsx';
+import propTypes from './renderers/propTypes';
+
 import loadTemplate from './loaders/loadTemplate';
 
 const renderFunctionalComponent = (name, componentAst) => {
@@ -13,6 +15,7 @@ const renderFunctionalComponent = (name, componentAst) => {
     data.instantiations = instantiation(componentAst);
     data.childJsx = jsx(componentAst);
     data.imports = imports(componentAst);
+    data.propTypes = propTypes(componentAst);
 
     const template = loadTemplate('reactFunctionalComponent');
     return Mustache.render(template, data);
