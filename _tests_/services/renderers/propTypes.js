@@ -4,7 +4,8 @@ import _ from 'lodash';
 import functionToTest from '../../../src/services/renderers/propTypes';
 
 const singleResult = null;
-const arrayedResult = '    listItems: React.PropTypes.array,\n';
+const arrayedResult1 = '    listItems: React.PropTypes.array,\n';
+const arrayedResult2 = '    users: React.PropTypes.array,\n';
 
 describe('(instantiation)', () => {
     it('should return nothing for no children', () => {
@@ -27,7 +28,7 @@ describe('(instantiation)', () => {
         const data = { children: { listItem: { usage: 'ARRAYED_COMPONENT' } } };
         const results = functionToTest(data);
 
-        const expectedResults = [arrayedResult];
+        const expectedResults = [arrayedResult1];
 
         expect(results).to.deep.equal(expectedResults);
     });
@@ -38,7 +39,26 @@ describe('(instantiation)', () => {
         } };
         const results = functionToTest(data);
 
-        const expectedResults = [singleResult, arrayedResult];
+        const expectedResults = [singleResult, arrayedResult1];
+
+        expect(results).to.deep.equal(expectedResults);
+    });
+    it('should 2 arrays, appropriately named, for 2 arrayed components', () => {
+        const data = { children: {
+            user: { usage: 'ARRAYED_COMPONENT' },
+            listItem: { usage: 'ARRAYED_COMPONENT' },
+        } };
+        const results = functionToTest(data);
+
+        const expectedResults = [arrayedResult2, arrayedResult1];
+
+        expect(results).to.deep.equal(expectedResults);
+    });
+    it('should correctly pluralize a plural format array name', () => {
+        const data = { children: { users: { usage: 'ARRAYED_COMPONENT' } } };
+        const results = functionToTest(data);
+
+        const expectedResults = [arrayedResult2];
 
         expect(results).to.deep.equal(expectedResults);
     });
