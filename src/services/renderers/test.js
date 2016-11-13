@@ -20,7 +20,7 @@ const imports = (children) => {
             componentName: name,
             capitalizedComponentName: _.upperFirst(name),
         };
-        const template = loadTemplate('tests/index.mustache');
+        const template = loadTemplate('tests/mocha.mustache');
         return Mustache.render(template, singleData);
     });
 
