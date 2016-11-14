@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Mustache from 'mustache';
+import pluralize from 'pluralize';
 
 import loadTemplate from '../loaders/loadTemplate';
 import componentUsages from '../../consts/componentUsages';
@@ -21,7 +22,7 @@ const imports = (children) => {
             return null
         case componentUsages.ARRAYED_COMPONENT:
             const arrayedData = {
-                propName: `${name}s`,
+                propName: `${pluralize(name, 3)}`,
                 propType: 'object',
             };
             const arrayedTemplate = loadTemplate('propTypes/ARRAYED_COMPONENT');
