@@ -4,8 +4,8 @@ import _ from 'lodash';
 import functionToTest from '../../../src/services/renderers/propTypes';
 
 const singleResult = null;
-const arrayedResult1 = '    listItems: React.PropTypes.array,\n';
-const arrayedResult2 = '    users: React.PropTypes.array,\n';
+const arrayedResult1 = '    listItems: React.PropTypes.arrayOf(React.PropTypes.object),\n';
+const arrayedResult2 = '    users: React.PropTypes.arrayOf(React.PropTypes.object),\n';
 
 describe('(instantiation)', () => {
     it('should return nothing for no children', () => {

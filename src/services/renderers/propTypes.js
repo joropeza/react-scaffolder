@@ -22,7 +22,7 @@ const imports = (children) => {
         case componentUsages.ARRAYED_COMPONENT:
             const arrayedData = {
                 propName: `${name}s`,
-                propType: 'array',
+                propType: 'object',
             };
             const arrayedTemplate = loadTemplate('propTypes/ARRAYED_COMPONENT');
             return Mustache.render(arrayedTemplate, arrayedData);
