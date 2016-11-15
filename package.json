@@ -7,7 +7,7 @@
     "start": "babel-node ./src/index.js -c list+[listItem]+[users]",
     "test": "mocha --recursive ./_tests_/ --require babel-core/register",
     "test-watch": "mocha --recursive ./_tests_/ --require babel-core/register --watch --bail",
-    "lint": "eslint ./src/**/*.js"
+    "lint": "eslint \"./src/**/*.js\""
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",

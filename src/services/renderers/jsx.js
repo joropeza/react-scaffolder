@@ -17,20 +17,22 @@ const jsx = (children) => {
     const getters = _.map(mappedChildren, (child) => {
         const { name, usage } = child;
         switch (usage) {
-        case componentUsages.SINGLE_COMPONENT:
+        case componentUsages.SINGLE_COMPONENT: {
             const singleData = {
-                componentName: '{' + name + '}',
+                componentName: `{${name}}`,
                 capitalizedComponentName: _.upperFirst(name),
             };
             const singleTemplate = loadTemplate('jsx/SINGLE_COMPONENT');
             return Mustache.render(singleTemplate, singleData);
-        case componentUsages.ARRAYED_COMPONENT:
+        }
+        case componentUsages.ARRAYED_COMPONENT: {
             const arrayedData = {
-                componentName: '{' + name + 'Array}',
+                componentName: `{${name}Array}`,
                 capitalizedComponentName: _.upperFirst(name),
             };
             const arrayedTemplate = loadTemplate('jsx/ARRAYED_COMPONENT');
             return Mustache.render(arrayedTemplate, arrayedData);
+        }
         default:
             return 'default';
         }

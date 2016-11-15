@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Mustache from 'mustache';
+import pluralize from 'pluralize';
 
 import loadTemplate from '../loaders/loadTemplate';
 import componentUsages from '../../consts/componentUsages';
@@ -17,20 +18,23 @@ const instantiation = (children) => {
     const getters = _.map(mappedChildren, (child) => {
         const { name, usage } = child;
         switch (usage) {
-        case componentUsages.SINGLE_COMPONENT:
+        case componentUsages.SINGLE_COMPONENT: {
             const singleData = {
                 componentName: name,
                 capitalizedComponentName: _.upperFirst(name),
             };
             const singleTemplate = loadTemplate('instantiation/SINGLE_COMPONENT');
             return Mustache.render(singleTemplate, singleData);
-        case componentUsages.ARRAYED_COMPONENT:
+        }
+        case componentUsages.ARRAYED_COMPONENT: {
             const arrayedData = {
                 componentName: name,
+                pluralizedComponentName: pluralize(name, 3),
                 capitalizedComponentName: _.upperFirst(name),
             };
             const arrayedTemplate = loadTemplate('instantiation/ARRAYED_COMPONENT');
             return Mustache.render(arrayedTemplate, arrayedData);
+        }
         default:
             return 'default';
         }

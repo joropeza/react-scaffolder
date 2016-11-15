@@ -19,14 +19,15 @@ const imports = (children) => {
         const { name, usage } = child;
         switch (usage) {
         case componentUsages.SINGLE_COMPONENT:
-            return null
-        case componentUsages.ARRAYED_COMPONENT:
+            return null;
+        case componentUsages.ARRAYED_COMPONENT: {
             const arrayedData = {
                 propName: `${pluralize(name, 3)}`,
                 propType: 'object',
             };
             const arrayedTemplate = loadTemplate('propTypes/ARRAYED_COMPONENT');
             return Mustache.render(arrayedTemplate, arrayedData);
+        }
         default:
             return 'default';
         }

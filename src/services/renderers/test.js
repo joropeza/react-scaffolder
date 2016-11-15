@@ -2,7 +2,6 @@ import _ from 'lodash';
 import Mustache from 'mustache';
 
 import loadTemplate from '../loaders/loadTemplate';
-import componentUsages from '../../consts/componentUsages';
 
 const imports = (children) => {
     const childs = _.values(children);
@@ -15,7 +14,7 @@ const imports = (children) => {
     ));
 
     const getters = _.map(mappedChildren, (child) => {
-        const { name, usage } = child;
+        const { name } = child;
         const singleData = {
             componentName: name,
             capitalizedComponentName: _.upperFirst(name),

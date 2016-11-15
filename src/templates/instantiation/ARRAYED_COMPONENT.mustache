@@ -1,3 +1,5 @@
-    const {{ componentName }}Array = props.items.map(item => {
+    const {{ componentName }}Array = props.{{ pluralizedComponentName }}.map((item) => {
+        // provide required transforms here
+        
         return render{{ capitalizedComponentName }}();
     });
