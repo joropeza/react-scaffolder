@@ -4,7 +4,7 @@
   "description": "scaffold react component trees",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./src/index.js -c list+[listItem]+[users]",
+    "start": "babel-node ./src/index.js -c list+header+[listItem]+[users]+footer --path './z/'",
     "test": "mocha --recursive ./_tests_/ --require babel-core/register",
     "test-watch": "mocha --recursive ./_tests_/ --require babel-core/register --watch --bail",
     "lint": "eslint \"./src/**/*.js\""

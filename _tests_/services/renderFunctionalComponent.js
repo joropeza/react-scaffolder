@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import _ from 'lodash';
-import { linter } from 'eslint';
+import { CLIEngine } from 'eslint';
 import eslint from 'eslint';
 
 import componentAsts from '../io/componentAsts';
@@ -17,12 +17,15 @@ describe('(render functional component)', () => {
             expect(results).to.be.ok;
             expect(_.size(results)).to.equal(expectedResultsLength);
 
-            console.log(_.size(results));
+            const cli = new CLIEngine({
+                envs: ['browser', 'mocha'],
+                useEslintrc: true,
+            });
 
-            // const messages = _.map(results, result =>
-            //    eslint.CLIEngine.getErrorResults(result));
+            const linting = _.map(results, result =>
+                cli.executeOnText(result));
 
-            // console.log(messages);
+            // console.log(linting[0].results[0].messages);
 
             // const expectedResults = '';
 
